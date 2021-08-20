@@ -1,0 +1,196 @@
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+##         _    _                            _                        |
+##        / \  | |__  _   _ _ __   __ _  ___| |__   __ _ _ __         |
+##       / _ \ | '_ \| | | | '_ \ / _` |/ __| '_ \ / _` | '__|        |
+##      / ___ \| |_) | |_| | | | | (_| | (__| | | | (_| | |           |
+##     /_/   \_\_.__/ \__,_|_| |_|\__,_|\___|_| |_|\__,_|_|           |
+##                                                                    |
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+~~~~~~~~~~~~~~~~~+
+##                                                  |
+##  FILENAME : sxhkdrc                              |
+##  AUTHOR   : Abunachar ( Knight-Byte )            |
+##  GITHUB   : https://www.github.com/knight-byte   |
+##                                                  |
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+
+
+# -- Applications {{{
+
+
+# -- Terminal emulator
+super + shift + Return
+	konsole
+
+# -- Google Chrome
+super + c
+    google-chrome-stable
+
+# -- Firefox
+super + f
+	firefox
+
+# -- VSCode
+super + v
+    code
+
+# }}}
+#-----------------------------------------------
+# -- Screenshot {{{
+
+# -- Entire screen
+Print
+    spectacle -fbc
+
+# -- Active Screen
+Print + shift
+    spectacle -abc
+
+# -- Regional Screenshot
+Print + shift + ctrl
+    spectacle -rbc
+
+
+# }}}
+#-----------------------------------------------
+# -- Scripts {{{
+
+# -- Application Launcher
+super + o
+	$HOME/bin/launcher.sh
+
+# -- Power Menu
+super + shift + q
+	$HOME/bin/powermenu.sh
+    
+# -- Power button
+XF86PowerOff
+	$HOME/bin/powermenu.sh
+
+# -- add for copypaste
+super + shift + a
+    $HOME/bin/clipboardy
+
+# -- Application bar
+super + b
+    $HOME/bin/bartoggle
+
+# -- Disable sleep
+super + z
+    $HOME/bin/foo.sh
+
+# -- Enable Sleep
+super + shift +z
+    $HOME/bin/unfoo.sh
+
+# -- Notes ROFI
+super + shift + n
+    python $HOME/bin/notes_rofi.py
+
+# -- Takes Full screenshot and forword to Telegram
+#super + shift + s
+#    python $HOME/bin/sendpic
+
+# -- Takes Regional Screenshot and forward to Telegram
+#super + s
+#    python $HOME/bin/sendpic2
+
+# }}}
+#-----------------------------------------------
+# -- Bspwm keybind {{{
+
+# -- Reload sxhkd
+super + Escape
+	pkill -USR1 -x sxhkd ; notify-send 'sxhkd' 'Reloaded config'
+
+# -- Reload Bspwm
+super + q
+	bspc wm -r
+
+# -- close and kill
+super + {shift + ,shift + ctrl + }c
+	bspc node -{c,k}
+
+# -- Mono and Tile Toggle
+super + m
+	bspc desktop -l next
+
+# -- Enter to Active To master
+super + Return
+	bspc node -s biggest.window.local
+
+# -- Cycle Different Layout
+super + @space
+    bsp-layout cycle --layouts tall,rgrid,wide
+
+# }}}
+#-----------------------------------------------
+# -- Workspace keybind {{{
+
+# -- Switch Between Workspace and shift app to diff Workspace
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+    # -- Enable below and comment above to active Different wallerpaper for each Workspace
+    # {$HOME/bin/workspace_wallpaper,bspc node -d} '^{1-9,10}'
+
+# -- Rotate Between Application in current Workspace
+super + {shift + ,_} Tab
+	bspc node -f {prev,next}.local
+
+# -- Floating window with mouse
+super + ctrl + button3
+    bspc node -t floating
+
+# -- float to tilind
+super + t
+    bspc node -t tiled
+# }}}
+#-----------------------------------------------
+# -- Media and Brightness {{{
+
+# -- Brightness up
+XF86MonBrightnessUp
+	brightnessctl set 5%+
+
+# -- Brightness down
+XF86MonBrightnessDown
+    brightnessctl set 5%-
+
+# -- Vol increase
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+# -- Vol decrease 
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+# -- Vol Mute Toggle
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# --Mic increase
+super + XF86AudioRaiseVolume
+	$HOME/.config/polybar/mic-volume/mic-volume.sh inc-vol
+
+# -- Mic decrease 
+super + XF86AudioLowerVolume
+	$HOME/.config/polybar/mic-volume/mic-volume.sh dec-vol
+
+# -- Mic Mute Toggle
+super + XF86AudioMute
+	$HOME/.config/polybar/mic-volume/mic-volume.sh mute-vol
+
+# -- Media play pause
+XF86AudioPlay
+    playerctl play-pause
+
+# -- Media Next 
+XF86AudioNext
+    playerctl next
+
+# -- Media Previous
+XF86AudioPrev 
+    playerctl previous
+# }}}
+
+# X --------- END-------- X
+

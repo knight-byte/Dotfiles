@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+: '
+created by : Abuanchar
+Editor Used: vim
+lang       : bash 
+created on : 31/12/20
+version    : v1.0
+'
+
+path=$(pwd)
+echo "Want to continue sort? [y/n]"
+read yn
+if [[ $yn == 'y' || $yn == 'Y' ]]; then
+    python ~/bin/pythonScript/sortThis.py $path
+else
+    echo "$(tput setaf 1)Process cancelled by the user"
+fi
+

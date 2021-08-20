@@ -1,0 +1,12 @@
+#! /usr/bin/bash
+
+arg=$1
+if [[ $arg == "py" ]];then
+    cd /mnt/6E445ED4445E9F21/PythonData
+elif [[ $arg == "cf" ]];then
+    cd /mnt/6E445ED4445E9F21/PythonData/Codeforces-Problemset-Solution
+else
+    echo "Invalid arg"
+fi
+
+$SHELL

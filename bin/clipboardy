@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+#      _    _                            _                   |
+#     / \  | |__  _   _ _ __   __ _  ___| |__   __ _ _ __    |
+#    / _ \ | '_ \| | | | '_ \ / _` |/ __| '_ \ / _` | '__|   |
+#   / ___ \| |_) | |_| | | | | (_| | (__| | | | (_| | |      |
+#  /_/   \_\_.__/ \__,_|_| |_|\__,_|\___|_| |_|\__,_|_|      |
+#                                                            |
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+~~~~~~+
+#                                                     |
+#   FILENAME : clipboardy                             |
+#   AUTHOR   : Abunachar ( Knight-Byte )              |
+#   GITHUB   : https://www.github.com/knight-byte     |
+#                                                     |
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+
+rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'  -theme ~/.config/polybar/scripts/rofi/launcher.rasi

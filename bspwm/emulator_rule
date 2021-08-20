@@ -1,0 +1,7 @@
+#!/bin/bash
+
+wid=$1
+test=$(xdotool getactivewindow getwindowname)
+title=$(xprop -id "$wid" | grep -i "WM_NAME" | grep -o "\".*")
+[[ "$title" == '"Emulator"'* ]] \
+    && echo state=floating

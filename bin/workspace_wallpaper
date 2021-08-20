@@ -1,0 +1,19 @@
+#! /usr/bin/bash
+
+workspace_name=$1
+
+if [[ $workspace_name == "^1" ]];then
+    feh --bg-scale $HOME/wallpapers/gruv_waifu.jpg & # -- gruv waifu
+elif [[ $workspace_name == "^2" ]];then
+    feh --bg-scale $HOME/wallpapers/linuxlogo.png & # --linux logo
+elif [[ $workspace_name == "^3" ]];then
+    feh --bg-scale $HOME/wallpapers/samurai.jpg & # -- samurai
+elif [[ $workspace_name == "^4" ]];then
+    feh --bg-scale $HOME/wallpapers/archlogo.png & # -- arch logo
+elif [[ $workspace_name == "^5" ]];then
+    feh --bg-scale $HOME/wallpapers/space.jpg & # -- space guy
+else 
+    feh --bg-scale $HOME/wallpapers/gruv_waifu.jpg & # -- gruv waifu
+fi
+
+bspc desktop -f $workspace_name

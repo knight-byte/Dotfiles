@@ -1,0 +1,1 @@
+/home/abunachar/.config/polybar/scripts/launcher.sh
